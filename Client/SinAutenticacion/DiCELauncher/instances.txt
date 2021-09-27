@@ -1,0 +1,89 @@
+#Apartamentos
+[
+    [
+		1966, 62, 8, 2, 0, 0, 0, 1, 0, 0, 0, 0,  0,0
+	],
+    [
+		1947, 22, 10,1, 0, 1, 0, 0,  0, 0, 0, 0, 0, 0
+    ]
+]
+
+[
+	"construction_year",
+	"surface",
+	"floor",
+	"no_rooms"
+]
+
+#Depresion
+[
+    [ 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1 ],
+	[ 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1 ]
+]
+  
+#Torch y Tensorflow public
+["age", "hours_per_week"]
+
+[
+	[
+		30,
+		"Self-Employed",
+		"Assoc",
+		"Married",
+		"Professional",
+		"White",
+		"Male",
+		65
+    ],
+    [
+		22,
+		"Private",
+		"HS-grad",
+		"Single",
+		"Service",
+		"White",
+		"Female",
+		45
+    ]
+]
+  
+#Tensorflow private
+{
+    "age": [ 17, 90 ],
+    "workclass": [ "Government", "Other/Unknown", "Private", "Self-Employed" ],
+    "education": [
+		"Assoc",
+		"Bachelors",
+		"Doctorate",
+		"HS-grad",
+		"Masters",
+		"Prof-school",
+		"School",
+		"Some-college"
+    ],
+    "marital_status": [ "Divorced", "Married", "Separated", "Single", "Widowed" ],
+    "occupation": [
+		"Blue-Collar",
+		"Other/Unknown",
+		"Professional",
+		"Sales",
+		"Service",
+		"White-Collar"
+    ],
+    "race": [ "Other", "White" ],
+    "gender": [ "Female", "Male" ],
+    "hours_per_week": [ 1, 99 ]
+}
+  
+{
+	"age": 30,
+	"workclass": "Self-Employed",
+	"education": "Assoc",
+	"marital_status": "Married",
+	"occupation": "Professional",
+	"race": "White",
+	"gender": "Male",
+	"hours_per_week": 65
+}
+  
+income
