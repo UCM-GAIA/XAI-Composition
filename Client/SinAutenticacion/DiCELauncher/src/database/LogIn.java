@@ -142,6 +142,7 @@ public class LogIn extends JDialog {
 					username.setText("");
 				}
 			} catch (IOException e) {
+				e.printStackTrace();
 				infoLabel.setText("Error, connection couldn't be opened");
 			}
 		}
@@ -190,6 +191,7 @@ public class LogIn extends JDialog {
 					username.setText("");
 				}
 			} catch (IOException e) {
+				e.printStackTrace();
 				infoLabel.setText("Error, connection couldn't be opened");
 			}
 		}

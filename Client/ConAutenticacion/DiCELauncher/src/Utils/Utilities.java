@@ -27,6 +27,7 @@ public final class Utilities {
 			connection.setRequestMethod("GET");
 			return getResponse(connection.getInputStream());
 		} catch (IOException e) {
+			e.printStackTrace();
 			return SERVER_ERROR;
 		}
 	}

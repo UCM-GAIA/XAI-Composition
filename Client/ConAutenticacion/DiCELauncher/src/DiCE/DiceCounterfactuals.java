@@ -448,6 +448,7 @@ public class DiceCounterfactuals extends JFrame {
 					JSONObject obj = new JSONObject(aux);
 					JOptionPane.showMessageDialog(DiceCounterfactuals.this, obj.toString(2), "Parameters info", JOptionPane.PLAIN_MESSAGE);
 				} catch (IOException ex) {
+					ex.printStackTrace();
 					JOptionPane.showMessageDialog(DiceCounterfactuals.this, "Authentication error, try to log in again", "Web error", JOptionPane.ERROR_MESSAGE);
 					login.setVisible(true);
 				}
@@ -478,6 +479,7 @@ public class DiceCounterfactuals extends JFrame {
 			counterfactual = getCounterfactual(url, params);
 			visualizer.visualize(counterfactual);
 		} catch (IOException e) {
+			e.printStackTrace();
 			if (e.getMessage().contains("404")) {
 				System.err.println("Connection error");
 			} else {
