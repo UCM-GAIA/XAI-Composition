@@ -3,9 +3,9 @@ Instrucciones para utilizar API Flask Restful
 •	Para lanzar el script en el servidor:
 
 1.	Crear un virtual environment para poder instalar las librerías requeridas sin que se produzcan conflictos. Se puede crear con:
-	
-	python -m venv <ruta deseada>
-
+	```
+	python -m venv \<ruta deseada\>
+	```
 2.	Desde el virtualenv, instalar las dependencias que vienen en el fichero “requirements.txt”con pip. Ejemplo:
 	
 	python pip -r /Flask_apirest/requirements.txt
