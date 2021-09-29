@@ -5,19 +5,6 @@
   "desired_class": 0,
   "features_to_vary": "all",
   "instances": [
-
-    [
-      30,
-      "Self-Employed",
-      "Assoc",
-      "Married",
-      "Professional",
-      "White",
-      "Male",
-      65
-
-    ],
-
     [
       22,
       "Private",
