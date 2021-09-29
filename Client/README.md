@@ -6,7 +6,8 @@
 2. Run the program
 - Go to "DiCELauncher / src / DiCE / DiceCounterfactuals"
 - Run DiceCounterfactuals
-Important!: Remember to run the web service
+
+Important!: Remember to run the web service (server)
 
 3. How to use the app
 - It is only needed to fill the fields marked with a '*' (the run button won't be 
