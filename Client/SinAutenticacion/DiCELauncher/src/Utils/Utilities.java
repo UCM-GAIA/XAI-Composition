@@ -7,6 +7,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Simple utilities class with methods used by more than one class
+ * 
+ * @author Alejandro Corpas Calvo
+ */
 public final class Utilities {
 	public static final String SERVER_ERROR = "Error getting data. The connection may be closed.";
 

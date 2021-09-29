@@ -1,29 +1,25 @@
 #Apartamentos
+#This goes in the Instance field
 [
-    [
-		1966, 62, 8, 2, 0, 0, 0, 1, 0, 0, 0, 0,  0,0
-	],
-    [
-		1947, 22, 10,1, 0, 1, 0, 0,  0, 0, 0, 0, 0, 0
-    ]
+    [1966, 62, 8, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+    [1947, 22, 10, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
 
-[
-	"construction_year",
-	"surface",
-	"floor",
-	"no_rooms"
-]
+#This goes in the Continuous Features field
+["construction_year", "surface", "floor", "no_rooms"]
+
 
 #Depresion
+#This goes in the Instance field
 [
     [ 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1 ],
 	[ 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1 ]
 ]
-  
-#Torch y Tensorflow public
-["age", "hours_per_week"]
 
+
+
+#Torch y Tensorflow public
+#This goes in the Instance field
 [
 	[
 		30,
@@ -46,8 +42,26 @@
 		45
     ]
 ]
+
+#This goes in the Continuous Features field
+["age", "hours_per_week"]
+
+
   
 #Tensorflow private
+#This goes in the Instance field
+{
+	"age": 30,
+	"workclass": "Self-Employed",
+	"education": "Assoc",
+	"marital_status": "Married",
+	"occupation": "Professional",
+	"race": "White",
+	"gender": "Male",
+	"hours_per_week": 65
+}
+
+#This goes in the Features field
 {
     "age": [ 17, 90 ],
     "workclass": [ "Government", "Other/Unknown", "Private", "Self-Employed" ],
@@ -75,15 +89,5 @@
     "hours_per_week": [ 1, 99 ]
 }
   
-{
-	"age": 30,
-	"workclass": "Self-Employed",
-	"education": "Assoc",
-	"marital_status": "Married",
-	"occupation": "Professional",
-	"race": "White",
-	"gender": "Male",
-	"hours_per_week": 65
-}
-  
+#This goes in the Outcome Name field
 income

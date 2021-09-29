@@ -43,5 +43,6 @@ public class XAIGUI extends JFrame {
 	
 	public static void main(String[] args) {
 		new XAIGUI();
+		System.out.println("Better run DiceCounterfactuals' main");
 	}
 }

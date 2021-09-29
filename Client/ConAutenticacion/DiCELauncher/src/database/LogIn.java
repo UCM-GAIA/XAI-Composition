@@ -25,6 +25,11 @@ import org.json.JSONObject;
 import DiCE.DiceCounterfactuals;
 import Utils.Utilities;
 
+/**
+ * View class of the DiCE package that contains all the java swing code related to authentication of the user.
+ * 
+ * @author Alejandro Corpas Calvo
+ */
 public class LogIn extends JDialog {
 	/**
 	 * 
@@ -41,7 +46,6 @@ public class LogIn extends JDialog {
 		this.dice = dice;
 		this.URL = dice.getURL();
 		this.setTitle("eXplainableAI LogIn");
-		this.setLocationRelativeTo(dice);
 		initGUI();
 	}
 
@@ -98,6 +102,9 @@ public class LogIn extends JDialog {
 		this.setVisible(true);
 	}
 	
+	/**
+	 * Method that is executed to register a new user in the system
+	 */
 	private void register() {
 		if (!createLoginJSON(username.getText(), password.getText()))
 			infoLabel.setText("All fields must be filled");
@@ -132,7 +139,6 @@ public class LogIn extends JDialog {
 					String token = json.getString("access_token");
 					dice.setToken(token);
 					this.setVisible(false);
-					dice.setVisible(true);
 					username.setText("");
 					password.setText("");
 					infoLabel.setText("");
@@ -148,6 +154,9 @@ public class LogIn extends JDialog {
 		}
 	}
 
+	/**
+	 * Method that is executed to log in an existing user in the system
+	 */
 	private void logIn() {
 		infoLabel.setText("Creating JSON file...");
 		if (!createLoginJSON(username.getText(), password.getText()))
@@ -181,7 +190,6 @@ public class LogIn extends JDialog {
 					String token = json.getString("access_token");
 					dice.setToken(token);
 					this.setVisible(false);
-					dice.setVisible(true);
 					username.setText("");
 					password.setText("");
 					infoLabel.setText("");
@@ -197,6 +205,9 @@ public class LogIn extends JDialog {
 		}
 	}
 	
+	/**
+	 * Method that tells if the login.json for authorization has been created
+	 */
 	private boolean createLoginJSON(String username, String password) {
 		if (username.equals("") || password.equals(""))
 			return false;
@@ -216,9 +227,4 @@ public class LogIn extends JDialog {
 			}
 		}
 	}
-	
-	
-	/*public static void main(String[] args) {
-		new LogIn(new DiceCounterfactuals("http://localhost:5444/"));
-	}*/
 }
