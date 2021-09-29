@@ -1,4 +1,4 @@
-#Apartamentos
+#Apartments
 #This goes in the Instance field
 [
     [1966, 62, 8, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
@@ -9,7 +9,7 @@
 ["construction_year", "surface", "floor", "no_rooms"]
 
 
-#Depresion
+#Depression
 #This goes in the Instance field
 [
     [ 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1 ],
@@ -18,7 +18,8 @@
 
 
 
-#Torch y Tensorflow public
+#Torch and Tensorflow can only receive one instance in the list (JSONObject in Tensorflow private) due to DiCE limitations
+#Torch and Tensorflow public
 #This goes in the Instance field
 [
 	[
@@ -30,16 +31,6 @@
 		"White",
 		"Male",
 		65
-    ],
-    [
-		22,
-		"Private",
-		"HS-grad",
-		"Single",
-		"Service",
-		"White",
-		"Female",
-		45
     ]
 ]
 
