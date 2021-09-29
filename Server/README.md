@@ -1,6 +1,6 @@
-Instrucciones para utilizar API Flask Restful
+##Instrucciones para utilizar API Flask Restful
 
-•	Para lanzar el script en el servidor:
+###•	Para lanzar el script en el servidor:
 
 1.	Crear un virtual environment para poder instalar las librerías requeridas sin que se produzcan conflictos. Se puede crear con:
 	```
@@ -18,7 +18,7 @@ Con esto le asignamos la contraseña “password” al usuario “root”, que v
 	```
 	CREATE DATABASE jwt_auth;
 	```
-IMPORTANTE: Para que poder acceder a la base de datos, se especifica en el script “flask_apirest.py” en la línea 27:
+**IMPORTANTE**: Para que poder acceder a la base de datos, se especifica en el script “flask_apirest.py” en la línea 27:
 	```
 	app.config['SQLALCHEMY_DATABASE_URI'] = 	'mysql://root:password@localhost/jwt_auth'
 	```
@@ -29,11 +29,11 @@ Se recomienda cambiar las credenciales de MySQL para mayor seguridad, pero tambi
 	python flask_apirest.py
 	```
 
-Nota: Por defecto, se usa la dirección IP de localhost en el puerto 5444, pero esto se puede cambiar en la última línea del script, por ejemplo, habilitando todas las direcciones con:
+**Nota:** Por defecto, se usa la dirección IP de localhost en el puerto 5444, pero esto se puede cambiar en la última línea del script, por ejemplo, habilitando todas las direcciones con:
 	```
 	app.run(host='0.0.0.0', port=63630)
 	```
-•	Uso desde el cliente sin interfaz gráfica:
+###•	Uso desde el cliente sin interfaz gráfica:
 
 1.	(Para versión con Autenticación) Antes de poder utilizar los métodos, es necesario obtener primero un token de autenticación, ya se a través de la función de register o de login, si ya hemos creado un usuario anteriormente. Se puede hacer utilizando curl de la siguiente manera, por ejemplo:
 	```
@@ -49,7 +49,7 @@ El valor de access_token es un JWT que debemos utilizar para hacer las llamadas,
 	set TOKEN="token.example.xyz"
 	```
 	
-Nota: los JWTs expiran cada cierto tiempo, por lo que es necesario volver a hacer login para obtener un nuevo token.
+**Nota:** los JWTs expiran cada cierto tiempo, por lo que es necesario volver a hacer login para obtener un nuevo token.
 
 2.	Para hacer llamadas a los métodos, hay acceder a la dirección y puerto del servidor y especificar para cada parámetro la ruta del archivo correspondiente. Para esto se puede utilizar la herramienta curl. Para ver los parámetros en detalle, consultar “apirest_specification”.  Además, hay que pasar el Token a la llamada (Ignorar sin Autenticación). Con “%TOKEN%” se vuelca el valor de la variable definida en el paso anterior. En Bash, se utlizaría “$TOKEN” en su lugar. Un ejemplo de llamada: 
 ```
