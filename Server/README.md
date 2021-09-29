@@ -1,6 +1,6 @@
-##Instrucciones para utilizar API Flask Restful
+## Instrucciones para utilizar API Flask Restful
 
-###•	Para lanzar el script en el servidor:
+### •	Para lanzar el script en el servidor:
 
 1.	Crear un virtual environment para poder instalar las librerías requeridas sin que se produzcan conflictos. Se puede crear con:
 	```
@@ -33,7 +33,7 @@ Se recomienda cambiar las credenciales de MySQL para mayor seguridad, pero tambi
 	```
 	app.run(host='0.0.0.0', port=63630)
 	```
-###•	Uso desde el cliente sin interfaz gráfica:
+### •	Uso desde el cliente sin interfaz gráfica:
 
 1.	(Para versión con Autenticación) Antes de poder utilizar los métodos, es necesario obtener primero un token de autenticación, ya se a través de la función de register o de login, si ya hemos creado un usuario anteriormente. Se puede hacer utilizando curl de la siguiente manera, por ejemplo:
 	```
