@@ -1,4 +1,4 @@
-1. Import project from ecplise
+1. Import project from eclipse
 - Go to "File >> Open Projects from File System"
 - Fill "Import source" with the path of the directory where the project is located
 - Press "Finish"
