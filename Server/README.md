@@ -51,7 +51,7 @@ El valor de access_token es un JWT que debemos utilizar para hacer las llamadas,
 	
 **Nota:** los JWTs expiran cada cierto tiempo, por lo que es necesario volver a hacer login para obtener un nuevo token.
 
-2.	Para hacer llamadas a los métodos, hay acceder a la dirección y puerto del servidor y especificar para cada parámetro la ruta del archivo correspondiente. Para esto se puede utilizar la herramienta curl. Para ver los parámetros en detalle, consultar “apirest_specification”.  Además, hay que pasar el Token a la llamada (Ignorar sin Autenticación). Con “%TOKEN%” se vuelca el valor de la variable definida en el paso anterior. En Bash, se utlizaría “$TOKEN” en su lugar. Un ejemplo de llamada: 
+2.	Para hacer llamadas a los métodos, hay acceder a la dirección y puerto del servidor y especificar para cada parámetro la ruta del archivo correspondiente. Para esto se puede utilizar la herramienta curl. Para ver los parámetros en detalle, consultar “apirest_specification”.  Además, hay que pasar el Token a la llamada (Ignorar sin Autenticación). Con “%TOKEN%” se vuelca el valor de la variable definida en el paso anterior. En Bash, se utlizaría “$TOKEN” en su lugar. Un ejemplo de llamada (no hay que usar el Authorization Header en la versión sin autenticación): 
 ```
 curl -F "params=<sklearn/depr_public_params.json" -F "model=@ sklearn/depr_mlp_model.pkl" -F "data=@sklearn/depr_data.pkl" -H "Authorization: Bearer %TOKEN%" http://localhost:5444/DicePublic
 ```
