@@ -292,45 +292,99 @@ class DicePublic(Resource):
         return e1.to_json() 
 
     def get(self):
-        return {
-        "_method_description": "Generates counterfactuals using the training data as a baseline. Requires 3 arguments: " 
-                           "the 'params' string, the 'model' which is a file containing the trained model, and " 
-                           "the 'data', containing the training data used for the model. These arguments are described below.",
+        
 
-        "params": { "_description": "STRING representing a JSON object containing the following fields:",
-                "instances": "Array of arrays, where each one represents a row with the feature values of an instance including the target class.",
-                "backend": "A string containing the backend of the prediction model. The supported values are: 'sklearn' (Scikit-learn), 'TF1' "
-                "(TensorFlow 1.0), 'TF2' (TensorFlow 2.0), 'PYT' (PyTorch).",
-                "method": "The method used for counterfactual generation. The supported methods are: 'random' (random sampling), 'genetic' (genetic algorithms), 'kdtrees'.",
-                "cont_features": "Array of strings containing the name of the continuous features. Features not included here are considered categorical.",
-                "features_to_vary": "Either a string 'all' or a list of strings representing the feature names to vary.",
-                "desired_class": "Integer representing the index of the desired counterfactual class, or 'opposite' in the case of binary classification.",
-                "num_cfs": "number of counterfactuals to be generated for each instance.",
-                "permitted_range": "(optional) JSON object with feature names as keys and permitted range in array as values.",
-                "continuous_features_precision": "(optional) JSON object with feature names as keys and precisions as values.",
-                "data_name": "(optional) name of the dataset."
-                },
+        data =  {
+            "description": "Generates counterfactuals using the training data as a baseline.",
 
-        "params_example":{
-                "backend": "sklearn",
-                "cont_features": ["Height", "Weight"],
-                "continuous_features_precision": {"Height": 1, "Weight":3},
-                "data_name": "datasetName",
-                "desired_class": 0,
-                "features_to_vary": "all",
-                "instances": [ ["X1", "X2", "Xn"], ["Y1", "Y2", "Yn"]],
-                "method": "random",
-                "num_cfs": 3,
-                "permitted_range": {"Height": [ 0, 250]}
-               },
-
-        "model": "The trained prediction model given as a file. The extension must match the backend being used i.e.  a .pkl " 
-             "file for Scikit-learn (use Joblib library), .pt for PyTorch or .h5 for TensorFlow models.",
-
-        "data": "Pandas DataFrame containing the training data given as a .pkl file (use Joblib library). The target class must be the last column of the DataFrame"
+            "signature": { 
+                    "instances": {
+                        "description": "Array of arrays, where each one represents a row with the feature values of an instance including the target class.",
+                        "datatype": {"type":"array", "object": {"datatype":"array"} },
+                        "optional": "false"
+                    },
+                    "backend": {
+                        "description": "A string containing the backend of the prediction model. The supported values are: 'sklearn' (Scikit-learn), 'TF1' (TensorFlow 1.0), 'TF2' (TensorFlow 2.0), 'PYT' (PyTorch).",
+                        "datatype": {"type": "enum", "allowedValues": ["sklearn","TF1","TF2","PYT"] },
+                        "optional": "false"
+                    },
+                    "model": {
+                        "description": "The trained prediction model given as a file. The extension must match the backend being used i.e.  a .pkl file for Scikit-learn (use Joblib library), .pt for PyTorch or .h5 for TensorFlow models.",
+                        "datatype": {"type": "binaryfile", "allowedExtensions": ["pkl", "pt", "h5"]},
+                        "optional": "false"  
+                    },
+                    "data": {
+                        "description": "Pandas DataFrame containing the training data given as a .pkl file (use Joblib library). The target class must be the last column of the DataFrame",
+                        "datatype": {"type": "binaryfile", "allowedExtensions": ["pkl"]},
+                        "optional": "false"
+                    },
+                    "method": {
+                        "description": "The method used for counterfactual generation. The supported methods are: 'random' (random sampling), 'genetic' (genetic algorithms), 'kdtrees'.",
+                        "datatype": {"type": "enum", "allowedValues": ["random","genetic","kdtrees"] },
+                        "optional": "false"
+                    },
+                    "cont_features": {
+                        "description": "Array of strings containing the name of the continuous features. Features not included here are considered categorical.",
+                        "datatype": { "type":"array", "object": "string"},
+                        "optional": "false"
+                    },
+                    "features_to_vary": {
+                        "description": "Either a string 'all' or a list of strings representing the feature names to vary.",
+                        "datatype:": {"choice": [
+                                {"datatype": {"type":"array", "object": "string"}},
+                                {"datatype": {"type":"enum", "allowedValues:": "all"}}
+                            ]
+                        },
+                        "optional": "false"
+                    },
+                    "desired_class": {
+                        "description": "Number representing the index of the desired counterfactual class, or 'opposite' in the case of binary classification.",
+                        "datatype": {"choice": [
+                                {"datatype": {"type": "number"}},
+                                {"datatype": {"type": "enum", "allowedValues:": "opposite"}}
+                            ]
+                        },
+                        "optional": "false"
+                    },
+                    
+                    "num_cfs": 
+                    {
+                       "description": "Number of counterfactuals to be generated for each instance.",
+                       "datatype": { "type": "number"},
+                       "optional": "false"
+                    },
+                    "permitted_range": {
+                        "description": "(optional) JSON object with feature names as keys and permitted range in array as values.",
+                        "datatype": { "type":"map", "key": "string", "object": {"type":"array", "object":"range"}},
+                        "optional": "true"    
+                    },
+                    "continuous_features_precision": {
+                        "description":"(optional) JSON object with feature names as keys and precisions as values.",
+                        "datatype": { "type":"map", "key": "string", "object": "number"},
+                        "optional": "true"
+                    },
+                    "data_name": {
+                        "description": "(optional) name of the dataset.",
+                        "datatype": { "type": "string"},
+                        "optional": "true"                    
+                    },
+            },
+            "example":{
+                    "backend": "sklearn",
+                    "cont_features": ["Height", "Weight"],
+                    "continuous_features_precision": {"Height": 1, "Weight":3},
+                    "data_name": "datasetName",
+                    "desired_class": 0,
+                    "features_to_vary": "all",
+                    "instances": [ ["X1", "X2", "Xn"], ["Y1", "Y2", "Yn"]],
+                    "method": "random",
+                    "num_cfs": 3,
+                    "permitted_range": {"Height": [ 0, 250]}
+                   }
         }
-    
-
+        r = make_response( data )
+        r.mimetype = 'application/json'
+        return r
 
 api.add_resource(DicePublic, '/DicePublic')
 
