@@ -16,7 +16,7 @@ docker run -p 5000:5000 <nombre del tag asignado>
 Con esto debería lanzarse el servidor en local en un contenedor. Se hace el mapeo del puerto 5000 con la opción -p. Para realizar las llamadas con curl o Postman (ver ejemplos con curl en el directorio Server de este repo), podemos utilizar la dirección https:localhost:5000.
 
 
-## Serverless
+# Serverless
 
 Ejecutar este comando para instalar serverless en MacOS o Linux:
 ```bash
@@ -28,30 +28,44 @@ Es recomendable crearse una cuenta para poder utilizar el Dashboard de Serverles
 ```bash
 serverless
 ```
-Este comando nos guía a través de la creación de una nueva aplicación. Una vez se haya generado la plantilla, habría que cambiar el fichero `app.py` por el que se encuentra aquí y modificar `serverless.yml` en caso de que queramos utilizar Docker para el despliegue.
+Este comando nos guía a través de la creación de una nueva aplicación. Una vez se haya generado la plantilla, habría que cambiar el fichero `app.py` por el que se encuentra aquí y modificar `serverless.yml` en caso de que queramos utilizar Docker para la instalación de los paquetes. Esto se muestra a continuación.
 
 ### Importante
 
 Para lanzar una aplicación con serverless, es necesario definir un proveedor en el archivo `serverless.yml` y asegurarnos de que nuestras credenciales del proveedor están configuradas en nuestra máquina. La configuración del las credenciales va a depender de cada proveedor. De todas formas, si no hemos configurado las credenciales, se nos informará a la hora de desplegar el servicio.
-## Usage
 
-```python
-import foobar
+## Serverless Python Requirements
 
-# returns 'words'
-foobar.pluralize('word')
+Este plugin se utiliza para empaquetar las dependencias de `requirements.txt`, Para instalarlo, ejecutar:
 
-# returns 'geese'
-foobar.pluralize('goose')
+```shell
+sls plugin install -n serverless-python-requirements
+```
+Este plugin nos permite utilizar docker para la instalación de los módulos de python.
+Para activar el uso de Dockers, se añade lo siguiente a `serverless.yml`:
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+```yaml
+custom:
+  pythonRequirements:
+    dockerizePip: true
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+The dockerizePip option supports a special case in addition to booleans of `'non-linux'` which makes
+it dockerize only on non-linux environments.
 
-Please make sure to update tests as appropriate.
+Se utiliza un Docker por defecto que se basa en el fichero `requirements.txt`, pero se puede utilizar un docker propio modificando `serverless.yml`:
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+```yaml
+custom:
+  pythonRequirements:
+    dockerImage: <nombre de la imagen>:tag
+```
+
+En lugar de pasar la imagen directamente, se puede pasar la ruta al Dockerfile en `serverless.yml`:
+
+```yaml
+custom:
+  pythonRequirements:
+    dockerFile: ./path/to/Dockerfile
+```
+Lógicamente, hace falta tener Docker instalado para utilizar estas funciones.
