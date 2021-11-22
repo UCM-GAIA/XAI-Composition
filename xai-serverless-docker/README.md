@@ -13,7 +13,7 @@ Una vez creada la imagen, podemos ejecutar desde el mismo directorio anterior:
 ```bash
 docker run -p 5000:5000 <nombre del tag asignado>
 ```
-Con esto debería lanzarse el servidor en local en un contenedor. Se hace el mapeo del puerto 5000 con la opción -p. Para realizar las llamadas con curl o Postman (ver ejemplos con curl en el directorio Server de este repo), podemos utilizar la dirección https:localhost:5000.
+Con esto debería lanzarse el servidor en local en un contenedor. Se hace el mapeo del puerto 5000 con la opción -p. Para realizar las llamadas con curl o Postman (ver ejemplos con curl en la carpeta Client de este repo), podemos utilizar la dirección https:localhost:5000.
 
 
 # Serverless
