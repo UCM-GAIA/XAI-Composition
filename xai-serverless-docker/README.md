@@ -5,7 +5,6 @@ Se puede crear una Docker Image para despues lanzar el servidor localmente a par
 Primero se contruye la imagen, ejecutando este comando desde el directorio donde se encuentren los archivos `requirements.txt` y `Dockerfile`
 
 ```
-bash
 docker build -t <nombre del tag> .
 ```
 Con el tag que asignemos nos podemos referir a la imagen una vez que se haya creado. **Nota:** En el fichero `Dockerfile` se instalan todas las librerías de forma individual con pip para poder depurar en caso de producirse un error, pero también se puede hacer un único pip con `requirements.txt`.
