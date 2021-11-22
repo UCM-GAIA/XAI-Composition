@@ -1,6 +1,6 @@
 # Docker
 
-Se puede crear una Docker Image para despues lanzar el servidor localmente a partir del fichero `DockerFile`. Para esto es necesario tener Docker instalado. 
+Se puede crear una Docker Image para despues lanzar el servidor localmente a partir del fichero `Dockerfile`. Para esto es necesario tener Docker instalado. 
 
 Primero se contruye la imagen, ejecutando este comando desde el directorio donde se encuentren los archivos `requirements.txt` y `Dockerfile`
 
