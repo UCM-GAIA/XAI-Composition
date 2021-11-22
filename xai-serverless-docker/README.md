@@ -28,7 +28,7 @@ Es recomendable crearse una cuenta para poder utilizar el Dashboard de Serverles
 ```bash
 serverless
 ```
-Este comando nos guía a través de la creación de una nueva aplicación.
+Este comando nos guía a través de la creación de una nueva aplicación. Una vez se haya generado la plantilla, habría que cambiar el fichero `app.py` por el que se encuentra aquí y modificar `serverless.yml` en caso de que queramos utilizar Docker para el despliegue.
 
 ### Importante
 
