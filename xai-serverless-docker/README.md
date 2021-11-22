@@ -2,19 +2,18 @@
 
 Se puede crear una Docker Image para despues lanzar el servidor localmente a partir del fichero `Dockerfile`. Para esto es necesario tener Docker instalado. 
 
-Primero se contruye la imagen, ejecutando este comando desde el directorio donde se encuentren los archivos `requirements.txt` y `Dockerfile`
+Primero se contruye la imagen, ejecutando este comando desde el directorio donde se encuentren los archivos `requirements.txt`, `app.py` y `Dockerfile`
 
-```
+```bash
 docker build -t <nombre del tag> .
 ```
 Con el tag que asignemos nos podemos referir a la imagen una vez que se haya creado. **Nota:** En el fichero `Dockerfile` se instalan todas las librerías de forma individual con pip para poder depurar en caso de producirse un error, pero también se puede hacer un único pip con `requirements.txt`.
-Una vez creada la imagen, podemos ejecutar:
+Una vez creada la imagen, podemos ejecutar desde el mismo directorio anterior:
 
-```
-bash
+```bash
 docker run -p 5000:5000 <nombre del tag asignado>
 ```
-Con esto debería lanzarse el servidor en local en un contenedor. Se hace el mapeo al puerto 5000 con la opción -p. Para realizar las llamadas con curl o Postman (ver ejemplos con curl el directorio Server de este repo), podemos utilizar la dirección https:localhost:5000.
+Con esto debería lanzarse el servidor en local en un contenedor. Se hace el mapeo del puerto 5000 con la opción -p. Para realizar las llamadas con curl o Postman (ver ejemplos con curl en el directorio Server de este repo), podemos utilizar la dirección https:localhost:5000.
 
 
 ## Installation
