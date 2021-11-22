@@ -16,14 +16,23 @@ docker run -p 5000:5000 <nombre del tag asignado>
 Con esto debería lanzarse el servidor en local en un contenedor. Se hace el mapeo del puerto 5000 con la opción -p. Para realizar las llamadas con curl o Postman (ver ejemplos con curl en el directorio Server de este repo), podemos utilizar la dirección https:localhost:5000.
 
 
-## Installation
+## Serverless
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
+Ejecutar este comando para instalar serverless en MacOS o Linux:
 ```bash
-pip install foobar
+curl -o- -L https://slss.io/install | bash
 ```
 
+Es recomendable crearse una cuenta para poder utilizar el Dashboard de Serverless. Desde aquí es mucho más sencillo crear una nueva aplicación clicando en `create app`. Desde ahí se escoge un nombre para la aplicación y el tipo de framework a utilizar. Para poder lanzar `app.py`, seleccionamos la opción de `python flask API` y ejecutamos los comandos que nos muestran en el directorio que queramos. Todo esto se puede hacer de igual manera desde la CLI con el comando:
+
+```bash
+serverless
+```
+Este comando nos guía a través de la creación de una nueva aplicación.
+
+### Importante
+
+Para lanzar una aplicación con serverless, es necesario definir un proveedor en el archivo `serverless.yml` y asegurarnos de que nuestras credenciales del proveedor están configuradas en nuestra máquina. La configuración del las credenciales va a depender de cada proveedor. De todas formas, si no hemos configurado las credenciales, se nos informará a la hora de desplegar el servicio.
 ## Usage
 
 ```python
