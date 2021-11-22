@@ -9,8 +9,7 @@ custom:
     app: app.app
   pythonRequirements:
     dockerizePip: true
-    dockerFile: ./Dockerfile
-
+    
 provider:
   name: aws
   runtime: python3.8
