@@ -66,6 +66,28 @@ En lugar de pasar la imagen directamente, se puede pasar la ruta al Dockerfile e
 ```yaml
 custom:
   pythonRequirements:
-    dockerFile: ./path/to/Dockerfile
+    dockerFile: ./ruta/a/Dockerfile
 ```
 Lógicamente, hace falta tener Docker instalado para utilizar estas funciones.
+
+## Serverless-wsgi
+
+Este plugin permite desplegar aplicaciones WSGI de python con serverless. Para instalarlo, ejecutar:
+
+```bash
+sls plugin install -n serverless-wsgi
+```
+Particularmente, `Serverless-wsgi` permite desplegar localmente durante el desarrollo con el comando:
+
+```bash
+serverless wsgi serve
+```
+
+Sin embargo, **primero es necesario instalar las dependencias** en `requirements.txt`. Para esto podemos crear un `venv`: 
+
+```bash
+python3.8 -m venv ./venv
+source ./venv/bin/activate
+pip install werkzeug
+pip install -r requirements.txt
+```
