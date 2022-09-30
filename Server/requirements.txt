@@ -2,7 +2,7 @@ tensorflow==2.5.0
 torch==1.9.0
 numpy==1.19.5
 pandas==1.2.4
-joblib==0.16.0
+joblib==1.2.0
 dice_ml==0.7.1
 json5==0.9.5
 jsonpickle==2.0.0
