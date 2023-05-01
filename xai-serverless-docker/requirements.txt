@@ -7,7 +7,7 @@ jsonpickle==2.0.0
 jsonschema==3.2.0
 Werkzeug==2.0
 h5py==3.1.0
-flask==2.0.1
+flask==2.3.2
 flask-jwt-extended==4.3.1
 Flask-SQLAlchemy==2.5.1
 flask-restful==0.3.9
